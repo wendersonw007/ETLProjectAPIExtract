@@ -1,121 +1,52 @@
+Aqui está um exemplo de README para o seu arquivo `exemplo_05.py`, incluindo instruções de instalação e uma explicação sobre o que o código faz.
 
+# Exemplo 05 - Uso da API OpenAI
 
-```markdown
-# 🐍 ETL Python - Extração de Dados via API
+Este exemplo demonstra como fazer uma chamada à API OpenAI para obter uma resposta a uma pergunta específica. O código utiliza a biblioteca `requests` para enviar uma solicitação HTTP e a biblioteca `dotenv` para gerenciar variáveis de ambiente.
 
-## 📋 Descrição
-Projeto simples de ETL (Extract, Transform, Load) desenvolvido em Python, utilizando a biblioteca Requests para extrair dados de APIs, realizar transformações básicas e carregar em um arquivo de destino.
+## Pré-requisitos
 
-## 🔧 Pré-requisitos
-- Python 3.8+
-- pip (gerenciador de pacotes Python)
+Antes de executar o código, você precisa ter o Python instalado em sua máquina. Além disso, você deve ter uma chave de API da OpenAI. 
 
-## 📦 Bibliotecas Utilizadas
-- requests
-- pandas
-- python-dotenv
-- logging
+## Instalação
 
-## 🚀 Instalação
+1. Clone este repositório ou baixe o arquivo `exemplo_05.py`.
+2. Crie um arquivo chamado `requirements.txt` e adicione as seguintes dependências:
 
-1. Clone o repositório
-```bash
-git clone git@github.com:wendersonw007/ETLProjectAPIExtract.git
-cd ETLProjectAPIExtract
+```
+requests
+python-dotenv
 ```
 
-2. Crie um ambiente virtual
-```bash
-python -m venv venv
-```
+3. Instale as dependências usando o pip:
 
-3. Ative o ambiente virtual
-```bash
-# Windows
-venv\Scripts\activate
-
-# Linux/Mac
-source venv/bin/activate
-```
-
-4. Instale as dependências
 ```bash
 pip install -r requirements.txt
 ```
 
-5. Configure as variáveis de ambiente
+4. Crie um arquivo `.env` na mesma pasta que o seu script e adicione sua chave de API da OpenAI:
+
+```
+OPENAI_API_KEY=sua_chave_api_aqui
+```
+
+## Execução
+
+Para executar o exemplo, use o seguinte comando no terminal:
+
 ```bash
-cp .env.example .env
-# Edite o arquivo .env com suas credenciais
+python exemplos/exemplo_05.py
 ```
 
-## 📁 Estrutura do Projeto
-```
-etl-python/
-├── src/
-│   ├── extract.py
-│   ├── transform.py
-│   ├── load.py
-│   └── main.py
-├── data/
-│   ├── raw/
-│   └── processed/
-├── logs/
-├── .env
-├── requirements.txt
-└── README.md
-```
+## O que o código faz
 
-## 🎯 Como Usar
-Execute o script principal:
-```bash
-python src/main.py
-```
+- O código carrega as variáveis de ambiente do arquivo `.env`.
+- Define a URL da API OpenAI e os cabeçalhos necessários para a solicitação.
+- Cria um objeto de dados que contém o modelo a ser usado e a mensagem do usuário.
+- Envia uma solicitação POST para a API e imprime a resposta recebida, que contém a resposta à pergunta "Qual é a capital da França?".
 
-## 📝 Exemplo de Código
-```python
-# src/extract.py
-import requests
-import logging
+## Observações
 
-def extract_data(url):
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Erro na extração: {e}")
-        return None
-```
+Certifique-se de que sua chave de API está correta e que você tem acesso à API OpenAI.
 
-## 📊 Fluxo de Dados
-1. **Extração**: Coleta dados da API via requests
-2. **Transformação**: Limpa e formata os dados
-3. **Carregamento**: Salva os dados processados
-
-## 🤝 Contribuindo
-1. Faça um Fork do projeto
-2. Crie sua Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a Branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-## 📝 Licença
-Este projeto está sob a licença MIT.
-
-## ✉️ Contato
-Wenderson - [@wendersonw007](https://github.com/wendersonw007)
-```
-
-Este é um README inicial e direto, focado em um projeto ETL básico com Python e Requests. Ele inclui:
-- Instruções claras de instalação
-- Estrutura básica do projeto
-- Exemplo de código
-- Fluxo de trabalho simples
-
-Você pode expandir este README conforme o projeto cresce, adicionando mais detalhes sobre:
-- Configurações específicas
-- Exemplos de uso mais detalhados
-- Documentação da API utilizada
-- Tratamento de erros
-- Boas práticas de código
+Sinta-se à vontade para ajustar qualquer parte do README conforme necessário!
