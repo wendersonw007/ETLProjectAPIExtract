@@ -81,10 +81,10 @@ if __name__ == "__main__":
                 dados_tratados = tratar_dados_bitcoin(dados_json)
                 print("Dados Tratados:", dados_tratados)
                 salvar_dados_postgres(dados_tratados)
-            time.sleep(60)
+            time.sleep(15)
         except KeyboardInterrupt:
             print("\nProcesso interrompido pelo usuário. Finalizando...")
             break
         except Exception as e:
             print(f"Erro durante a execução: {e}")
-            time.sleep(60)
+            time.sleep(15)
